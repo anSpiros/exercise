@@ -43,6 +43,7 @@
     $rovers = fgets($handle);
     $rovers = trim($rovers);
 
+    $output = array();
 
     for($i = 1; $i <= $rovers; $i++ ) {
         $read = new ReadLines($rovers);
@@ -50,7 +51,7 @@
         $arr['rover_position'] = $read->read_and_return('position',$i);
         $arr['move_sequence'] = $read->read_and_return('move',$i);
 
-        var_dump($arr);
+        // var_dump($arr);
 
         //starting points
         $starting_point = explode(" ", $arr['starting_coordinates']);
@@ -73,10 +74,10 @@
             }elseif($char == 'M') {
                 // var_dump($current_rover_position);
                 if($current_rover_position['facing'] == 'S') {
-                    $current_rover_position['x'] = (int)$current_rover_position['x'] + 1;
+                    $current_rover_position['x'] = (int)$current_rover_position['x'] - 1;
                     echo "x = ". (int)$current_rover_position['x'];
                 }elseif($current_rover_position['facing'] == 'N') {
-                    $current_rover_position['x'] = (int)$current_rover_position['x'] - 1;
+                    $current_rover_position['x'] = (int)$current_rover_position['x'] + 1;
                     echo "x = ". (int)$current_rover_position['x'];
                 }elseif($current_rover_position['facing'] == 'W') {
                     $current_rover_position['y'] = (int)$current_rover_position['y'] - 1;
@@ -88,6 +89,7 @@
             }
         }
 
-        var_dump($current_rover_position);
+        echo "\n".$current_rover_position['x']." ".$current_rover_position['y']." ". $current_rover_position['facing']."\n";
     }
+    
 ?>

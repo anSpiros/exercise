@@ -41,7 +41,7 @@
         }
         private function readPosition($rover_number) {
             do{
-                echo "Give starting position of rover $rover_number: ";
+                echo "Give current position of rover $rover_number: ";
                 $handle = fopen ("php://stdin","r");
                 $line = fgets($handle);
                 $line = trim($line);
