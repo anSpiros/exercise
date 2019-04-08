@@ -25,7 +25,6 @@
                 $handle = fopen ("php://stdin","r");
                 $line = fgets($handle);
                 $line = trim($line);
-                // echo gettype((int)$line);
                 if ( preg_match('@\s@s',$line) ){
                     echo "\n";
                     $this->isDone = true;
@@ -66,7 +65,7 @@
                 $handle = fopen ("php://stdin","r");
                 $line = fgets($handle);
                 $line = trim($line);
-                if(strlen($line) > 4) {
+                if(strlen($line) > 1) {
                     echo "\n";
                     $this->isDone = true;
                     return $line;
